@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Intermedidate Algorithm Scripting</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="../css/algorithm.css">
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="col-xs-12 col-sm-12 col-lg-12 text-center">
+			<h2>Intermediate Algorithm Scripting</h2>
+		</div>
+		<table id="algorithmList" class="table table-bordered">
+			<thead>
+				<tr>
+					<th class="question text-center">Question</th>
+					<th class="input text-center">Input</th>
+					<th class="result text-center">Result</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="question"><h3>Sum All Numbers in a Range</h3> We'll
+						pass you an array of two numbers. Return the sum of those two
+						numbers and all numbers between them. <br />The lowest number
+						will not always come first. <br />Write your own code. <br /> <input
+						type="button" id="sumAllSolution" value="Show Solution"
+						class="btn btn-default">
+						<div class="solutionCode"></div></td>
+					<td>
+						<div class="form-group">
+							<label for="num1">Number 1:</label> <input type="number"
+								id="num1" class="form-control"> <br /> <label
+								for="num2">Number 2:</label><input type="number" id="num2"
+								class="form-control"> <input type="button"
+								class="btn btn-default" id="sumAll" value="Show Result">
+						</div>
+					</td>
+					<td class="result"><span id="sumAllResult"></span></td>
+				</tr>
+
+				<tr>
+					<td><h3>Diff Two Arrays</h3> Compare two arrays and return a
+						new array with any items only found in one of the two given
+						arrays, but not both. In other words, return the symmetric
+						difference of the two arrays. <br />Write your own code <br /> 
+						<input	type="button" id="diffArraySolution" value="Show Solution"
+						class="btn btn-default">
+						<div class="solutionCode"></div></td>
+					<td><label for="arr1">Array Number 1:</label> 
+						<input type="text" id="arr1" class="form-control"> <br />
+						<label for="arr2">Array Number 2:</label>
+						<input type="text" id="arr2" class="form-control"> 
+						<input type="button" id="diffArray" value="Show Result" class="btn btn-default">
+					</td>
+
+					<td class="result"><span id="diffArrayResult"></span></td>
+				</tr>
+
+				<tr>
+					<td><h3>Roman Numeral Converter</h3> Convert the given number
+						into a roman numeral. <br />All roman numerals answers should be
+						provided in upper-case. <br />Write your own code.<br /> 
+						<input type="button" id="romanConvertSolution" value="Show Solution"
+						class="btn btn-default">
+						<div class="solutionCode"></div></td>
+					<td><label for="decimalNumber">Decimal Number:</label>
+						<input type="number" id="decimalNumber" class="form-control">
+						<input type="button" id="romanConvert" value="Show Result" class="btn btn-default">
+					</td>
+					<td class="result"><span id="romanCovertResult"></span></td>
+				</tr>
+
+				<tr>
+					<td><h3>Wherefore art thou</h3> Make a function that looks
+						through an array of objects (first argument) and returns an array
+						of all objects that have matching property and value pairs (second
+						argument). Each property and value pair of the source object has
+						to be present in the object from the collection if it is to be
+						included in the returned array. <br />"For example, if the first
+						argument is [{ first: "Romeo", last: "Montague" }, { first:
+						"Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }],
+						and the second argument is { last: "Capulet" }, then you must
+						return the third object from the array (the first argument),
+						because it contains the property and its value, that was passed on
+						as the second argument. <br />Write your own code.<br />
+					<input type="button" id="whatIsInANameSolution"
+						value="Show Solution" class="btn btn-default">
+						<div class="solutionCode"></div></td>
+					<td><label for="collectionArr">Collection Array:</label> 
+						<textarea rows="5" cols=""  id="collectionArr" class="form-control"></textarea>
+						<label for="sourceArr">Source Array:</label> 
+						<textarea rows="5" cols=""  id="sourceArr" class="form-control"></textarea>
+						<input type="button" id="whatIsInANameFilter" value="Show Result"
+						class="btn btn-default">
+					</td>
+					<td class="result"><span id="whatIsInANameResult"></span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="../script/algorithm.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			addSolutionCode(sumAll, "#sumAllSolution");
+			addSolutionCode(diffArray, "#diffArraySolution");
+			addSolutionCode(convertToRoman, "#romanConvertSolution");
+			addSolutionCode(whatIsInAName, "#whatIsInANameSolution");
+
+			$("#sumAll").click(function() {
+				var arr = [];
+				arr.push($("#num1").val());
+				arr.push($("#num2").val());
+				$('#sumAllResult').text(sumAll(arr));
+			});
+
+			$("#sumAllSolution").click(function() {
+				showSolution(sumAll, "#sumAllSolution");
+			});
+
+			$("#diffArray").click(function() {
+				var arr1 = $("#arr1").val().split(",");
+				var arr2 = $("#arr2").val().split(",");
+				$('#diffArrayResult').text(diffArray(arr1, arr2));
+			});
+
+			$("#diffArraySolution").click(function() {
+				showSolution(diffArray, "#diffArraySolution");
+			});
+
+			$("#romanConvert").click(function() {
+				var decimalNum = $("#decimalNumber").val();
+				$('#romanCovertResult').text(convertToRoman(decimalNum));
+			});
+			$("#romanConvertSolution").click(function() {
+				showSolution(convertToRoman, "#romanConvertSolution");
+			});
+
+			$("#whatIsInANameFilter").click(function() {
+				var collectionArr = $("#collectionArr").val();
+				var sourceArr = $("#sourceArr").val();
+				$('#whatIsInANameResult').text(whatIsInAName(collectionArr,sourceArr));
+			});
+			$("#whatIsInANameSolution").click(function() {
+				showSolution(whatIsInAName, "#whatIsInANameSolution");
+			});
+
+		})
+	</script>
+</body>
