@@ -1,15 +1,11 @@
 function sumAll(arr) {
-	var maxNum = arr.reduce(function(a, b) {
-		return Math.max(a, b);
-	});
 
-	var minNum = arr.reduce(function(a, b) {
-		return Math.min(a, b);
-	});
+	var maxNum = Math.max(arr[0], arr[1]);
+	var minNum = Math.min(arr[0], arr[1]);
 
 	var total = 0;
 	for (var i = minNum; i <= maxNum; i++) {
-		total += i;
+		total = total + i;
 	}
 	return total;
 }
@@ -97,4 +93,16 @@ function whatIsInAName(collection, source) {
 	});
 	return JSON.stringify(arr);
 
+}
+function searchReplace(str, before, after) {
+
+	var beforeInstr = str.charAt(str.toLowerCase()
+			.indexOf(before.toLowerCase()));
+	if (beforeInstr == beforeInstr.toUpperCase()) {
+		after = after.charAt(0).toUpperCase() + after.slice(1);
+	} else {
+		after = after.charAt(0).toLowerCase() + after.slice(1);
+	}
+	str = str.replace(before, after);
+	return str;
 }

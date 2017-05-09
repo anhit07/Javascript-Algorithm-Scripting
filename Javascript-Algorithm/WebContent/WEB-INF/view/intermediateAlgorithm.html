@@ -35,23 +35,25 @@
 				<tr>
 					<td class="question"><h3>Sum All Numbers in a Range</h3> We'll
 						pass you an array of two numbers. Return the sum of those two
-						numbers and all numbers between them. <br />The lowest number
-						will not always come first. <br />Write your own code. <br /> <input
-						type="button" id="sumAllSolution" value="Show Solution"
+						numbers and all numbers between them. 
+						<br />The lowest number
+						will not always come first. 
+						<br />Write your own code. 
+						<br /> <input type="button" id="sumAllSolution" value="Show Solution"
 						class="btn btn-default">
 						<div class="solutionCode"></div></td>
 					<td>
 						<div class="form-group">
-							<label for="num1">Number 1:</label> <input type="number"
-								id="num1" class="form-control"> <br /> <label
-								for="num2">Number 2:</label><input type="number" id="num2"
-								class="form-control"> <input type="button"
-								class="btn btn-default" id="sumAll" value="Show Result">
+							<label for="num1">Number 1:</label> 
+							<input type="number" id="num1" class="form-control"> <br /> 
+							<label for="num2">Number 2:</label>
+							<input type="number" id="num2" class="form-control">
+							<input type="button" class="btn btn-default" id="sumAll" value="Show Result">
 						</div>
 					</td>
 					<td class="result"><span id="sumAllResult"></span></td>
 				</tr>
-
+<!-- Diff Two Array Start -->
 				<tr>
 					<td><h3>Diff Two Arrays</h3> Compare two arrays and return a
 						new array with any items only found in one of the two given
@@ -69,7 +71,9 @@
 
 					<td class="result"><span id="diffArrayResult"></span></td>
 				</tr>
+<!-- Diff Two Array End -->
 
+<!-- Roman Numeral Converter Start -->
 				<tr>
 					<td><h3>Roman Numeral Converter</h3> Convert the given number
 						into a roman numeral. <br />All roman numerals answers should be
@@ -83,7 +87,9 @@
 					</td>
 					<td class="result"><span id="romanCovertResult"></span></td>
 				</tr>
+<!-- Roman Numeral Converter End -->
 
+<!-- Wherefore art thou Start -->
 				<tr>
 					<td><h3>Wherefore art thou</h3> Make a function that looks
 						through an array of objects (first argument) and returns an array
@@ -109,6 +115,36 @@
 					</td>
 					<td class="result"><span id="whatIsInANameResult"></span></td>
 				</tr>
+<!-- Wherefore art thou End -->
+
+<!--Search and Replace Start -->
+				<tr>
+					<td><h3>Search and Replace</h3> 
+					<br/>Perform a search and replace on the sentence using the arguments provided 
+					and return the new sentence.
+					<br/>First argument is the sentence to perform the search and replace on.
+					<br/>Second argument is the word that you will be replacing (before).
+					<br/>Third argument is what you will be replacing the second argument with (after).
+					<br/>NOTE: Preserve the case of the original word when you are replacing it. 
+					<br/>For example if you mean to replace the word "Book" with the word "dog", 
+					it should be replaced as "Dog"
+					<br/>Write your own code.<br/>
+
+					<input type="button" id="searchReplaceSolution"
+						value="Show Solution" class="btn btn-default">
+						<div class="solutionCode"></div></td>
+					<td><label for="beforeSentence">Before Sentence:</label> 
+						<textarea rows="5" cols=""  id="beforeSentence" class="form-control"></textarea>
+						<label for="beforeString">Before replaced String:</label> 
+						<input type="text" id="beforeString" class="form-control">
+						<label for="afterString">After String:</label> 
+						<input type="text" id="afterString" class="form-control">
+						<input type="button" id="searchReplace" value="Show Result"
+						class="btn btn-default">
+					</td>
+					<td class="result"><span id="searchReplaceResult"></span></td>
+				</tr>
+<!-- Search and Replace End -->
 			</tbody>
 		</table>
 	</div>
@@ -123,6 +159,7 @@
 			addSolutionCode(diffArray, "#diffArraySolution");
 			addSolutionCode(convertToRoman, "#romanConvertSolution");
 			addSolutionCode(whatIsInAName, "#whatIsInANameSolution");
+			addSolutionCode(searchReplace, "#searchReplaceSolution");
 
 			$("#sumAll").click(function() {
 				var arr = [];
@@ -160,6 +197,17 @@
 			});
 			$("#whatIsInANameSolution").click(function() {
 				showSolution(whatIsInAName, "#whatIsInANameSolution");
+			});
+
+			$("#searchReplace").click(function() {
+				var beforeSentence = $("#beforeSentence").val().trim();
+				var before = $("#beforeString").val().trim();
+				var after = $("#afterString").val().trim();
+				$('#searchReplaceResult').text(searchReplace(beforeSentence, before, after) );
+			});
+
+			$("#searchReplaceSolution").click(function() {
+				showSolution(searchReplace, "#searchReplaceSolution");
 			});
 
 		})
