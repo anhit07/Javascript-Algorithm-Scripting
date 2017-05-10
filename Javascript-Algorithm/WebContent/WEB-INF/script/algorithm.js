@@ -38,22 +38,7 @@ function convertToRoman(num) {
 
 	return romanized;
 }
-function showSolution(functionName, showButton) {
-	if ($(showButton).attr('value') === 'Show Solution') {
-		$(showButton).next().fadeIn();
-		$(showButton).attr('value', 'Hide Solution');
 
-	} else {
-		$(showButton).attr('value', 'Show Solution');
-		$(showButton).next().fadeOut();
-	}
-}
-
-function addSolutionCode(functionName, showButton) {
-	$(showButton).next().html(
-			"<pre>" + functionName.toString().replace("<", "&lt;") + "</pre>");
-
-}
 function showThead() {
 	var headertext = [];
 	var headers = document.querySelectorAll("thead");
@@ -104,5 +89,28 @@ function searchReplace(str, before, after) {
 		after = after.charAt(0).toLowerCase() + after.slice(1);
 	}
 	str = str.replace(before, after);
+	return str;
+}
+
+function translatePigLatin(str) {
+	if (str === null || str === '') {
+		return;
+	}
+
+	var vowelArr = [ 'a', 'e', 'i', 'o', 'u' ];
+	var subffiexs = 'way';
+
+	if (vowelArr.indexOf(str[0]) === -1) {
+		subffiexs = 'ay';
+
+		if (vowelArr.indexOf(str[1]) === -1) {
+			str = str.substr(2, str.length - 1) + str.substr(0, 2) + subffiexs;
+		} else {
+			str = str.substr(1, str.length - 1) + str.substr(0, 1) + subffiexs;
+		}
+	} else {
+		str = str.substr(0, str.length) + subffiexs;
+	}
+
 	return str;
 }

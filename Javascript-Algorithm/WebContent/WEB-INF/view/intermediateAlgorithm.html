@@ -32,117 +32,142 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td class="question"><h3>Sum All Numbers in a Range</h3> We'll
-						pass you an array of two numbers. Return the sum of those two
+<!-- Sum ALll Start -->
+				<tr data-function-name="sumAll">
+					<td class="question">
+						<h3>Sum All Numbers in a Range</h3> 
+						We'll pass you an array of two numbers. Return the sum of those two
 						numbers and all numbers between them. 
-						<br />The lowest number
-						will not always come first. 
+						<br />The lowest number will not always come first. 
 						<br />Write your own code. 
-						<br /> <input type="button" id="sumAllSolution" value="Show Solution"
-						class="btn btn-default">
-						<div class="solutionCode"></div></td>
+						<br /><input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
 					<td>
 						<div class="form-group">
 							<label for="num1">Number 1:</label> 
 							<input type="number" id="num1" class="form-control"> <br /> 
 							<label for="num2">Number 2:</label>
 							<input type="number" id="num2" class="form-control">
-							<input type="button" class="btn btn-default" id="sumAll" value="Show Result">
+							<input type="button" class="btn btn-default testFunction" value="Show Result">
 						</div>
 					</td>
-					<td class="result"><span id="sumAllResult"></span></td>
+					<td class="result"><span class="testResult"></span></td>
 				</tr>
+<!-- Sum ALll End -->
 <!-- Diff Two Array Start -->
-				<tr>
-					<td><h3>Diff Two Arrays</h3> Compare two arrays and return a
-						new array with any items only found in one of the two given
-						arrays, but not both. In other words, return the symmetric
-						difference of the two arrays. <br />Write your own code <br /> 
-						<input	type="button" id="diffArraySolution" value="Show Solution"
-						class="btn btn-default">
-						<div class="solutionCode"></div></td>
+				<tr data-function-name="diffArray">
+					<td><h3>Diff Two Arrays</h3> 
+						Compare two arrays and return a new array with any items 
+						only found in one of the two given arrays, but not both. 
+						In other words, return the symmetric difference of the two arrays.
+						<br />Write your own code <br />
+						<input	type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
 					<td><label for="arr1">Array Number 1:</label> 
 						<input type="text" id="arr1" class="form-control"> <br />
 						<label for="arr2">Array Number 2:</label>
 						<input type="text" id="arr2" class="form-control"> 
-						<input type="button" id="diffArray" value="Show Result" class="btn btn-default">
+						<input type="button" class="btn btn-default testFunction" value="Show Result">
 					</td>
 
-					<td class="result"><span id="diffArrayResult"></span></td>
+					<td class="result"><span class="testResult"></span></td>
 				</tr>
 <!-- Diff Two Array End -->
 
 <!-- Roman Numeral Converter Start -->
-				<tr>
-					<td><h3>Roman Numeral Converter</h3> Convert the given number
-						into a roman numeral. <br />All roman numerals answers should be
-						provided in upper-case. <br />Write your own code.<br /> 
-						<input type="button" id="romanConvertSolution" value="Show Solution"
-						class="btn btn-default">
-						<div class="solutionCode"></div></td>
+				<tr data-function-name="convertToRoman">
+					<td><h3>Roman Numeral Converter</h3> 
+						Convert the given number into a roman numeral.
+						<br />All roman numerals answers should be
+						provided in upper-case. <br />Write your own code.<br />
+
+						<input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
 					<td><label for="decimalNumber">Decimal Number:</label>
 						<input type="number" id="decimalNumber" class="form-control">
-						<input type="button" id="romanConvert" value="Show Result" class="btn btn-default">
+						<input type="button" value="Show Result" class="btn btn-default testFunction">
 					</td>
-					<td class="result"><span id="romanCovertResult"></span></td>
+					<td class="result"><span class="testResult"></span></td>
 				</tr>
 <!-- Roman Numeral Converter End -->
 
 <!-- Wherefore art thou Start -->
-				<tr>
-					<td><h3>Wherefore art thou</h3> Make a function that looks
-						through an array of objects (first argument) and returns an array
-						of all objects that have matching property and value pairs (second
-						argument). Each property and value pair of the source object has
+				<tr data-function-name="whatIsInAName">
+					<td><h3>Wherefore art thou</h3> 
+						Make a function that looks through an array of objects (first argument) 
+						and returns an array of all objects that have matching property 
+						and value pairs (second argument). 
+						Each property and value pair of the source object has
 						to be present in the object from the collection if it is to be
-						included in the returned array. <br />"For example, if the first
-						argument is [{ first: "Romeo", last: "Montague" }, { first:
-						"Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }],
+						included in the returned array. 
+						<br />For example, if the first argument is [{ first: "Romeo", last: "Montague" }, 
+						{ first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }],
 						and the second argument is { last: "Capulet" }, then you must
 						return the third object from the array (the first argument),
 						because it contains the property and its value, that was passed on
-						as the second argument. <br />Write your own code.<br />
-					<input type="button" id="whatIsInANameSolution"
-						value="Show Solution" class="btn btn-default">
-						<div class="solutionCode"></div></td>
-					<td><label for="collectionArr">Collection Array:</label> 
-						<textarea rows="5" cols=""  id="collectionArr" class="form-control"></textarea>
-						<label for="sourceArr">Source Array:</label> 
-						<textarea rows="5" cols=""  id="sourceArr" class="form-control"></textarea>
-						<input type="button" id="whatIsInANameFilter" value="Show Result"
-						class="btn btn-default">
+						as the second argument. 
+						<br />Write your own code.<br />
+						<input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
 					</td>
-					<td class="result"><span id="whatIsInANameResult"></span></td>
+					<td><label for="collectionArr">Collection Array:</label> 
+						<textarea rows="5" id="collectionArr" class="form-control"></textarea>
+						<label for="sourceArr">Source Array:</label> 
+						<textarea rows="5" id="sourceArr" class="form-control"></textarea>
+						<input type="button"  value="Show Result" class="btn btn-default testFunction">
+					</td>
+					<td class="result"><span class="testResult"></span></td>
 				</tr>
 <!-- Wherefore art thou End -->
 
 <!--Search and Replace Start -->
-				<tr>
+				<tr data-function-name="searchReplace">
 					<td><h3>Search and Replace</h3> 
-					<br/>Perform a search and replace on the sentence using the arguments provided 
-					and return the new sentence.
-					<br/>First argument is the sentence to perform the search and replace on.
-					<br/>Second argument is the word that you will be replacing (before).
-					<br/>Third argument is what you will be replacing the second argument with (after).
-					<br/>NOTE: Preserve the case of the original word when you are replacing it. 
-					<br/>For example if you mean to replace the word "Book" with the word "dog", 
-					it should be replaced as "Dog"
-					<br/>Write your own code.<br/>
-
-					<input type="button" id="searchReplaceSolution"
-						value="Show Solution" class="btn btn-default">
-						<div class="solutionCode"></div></td>
+						<br/>Perform a search and replace on the sentence using the arguments provided 
+						and return the new sentence.
+						<br/>First argument is the sentence to perform the search and replace on.
+						<br/>Second argument is the word that you will be replacing (before).
+						<br/>Third argument is what you will be replacing the second argument with (after).
+						<br/>NOTE: Preserve the case of the original word when you are replacing it. 
+						<br/>For example if you mean to replace the word "Book" with the word "dog", 
+						it should be replaced as "Dog"
+						<br/>Write your own code.<br/>
+						<input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
 					<td><label for="beforeSentence">Before Sentence:</label> 
 						<textarea rows="5" cols=""  id="beforeSentence" class="form-control"></textarea>
 						<label for="beforeString">Before replaced String:</label> 
 						<input type="text" id="beforeString" class="form-control">
 						<label for="afterString">After String:</label> 
 						<input type="text" id="afterString" class="form-control">
-						<input type="button" id="searchReplace" value="Show Result"
-						class="btn btn-default">
+						<input type="button" value="Show Result" class="btn btn-default testFunction">
 					</td>
-					<td class="result"><span id="searchReplaceResult"></span></td>
+					<td class="result"><span class="testResult"></span></td>
+				</tr>
+<!-- Search and Replace End -->
+
+<!--Translate Pig Latin -->
+				<tr data-function-name="translatePigLatin">
+					<td><h3>Pig Latin</h3> 
+						<br/>Translate the provided string to pig latin.
+						<br/><a href="https://en.wikipedia.org/wiki/Pig_Latin" target="_blank"> Pig Latin </a>
+						takes the first consonant (or consonant cluster) of 
+						an English word, moves it to the end of the word and suffixes an "ay".
+						<br/>If a word begins with a vowel you just add "way" to the end.
+						<br/>Input strings are guaranteed to be English words in all lowercase.
+						<br/>Write your own code. <br/>
+						<input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td><label for="beforeTranslatePigStr">Before String:</label> 
+						<input type="text" id="beforeTranslatePigStr" class="form-control">
+						<input type="button" value="Show Result" class="btn btn-default testFunction">
+					</td>
+					<td class="result"><span class="testResult"></span></td>
 				</tr>
 <!-- Search and Replace End -->
 			</tbody>
@@ -155,61 +180,67 @@
 	<script src="../script/algorithm.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			addSolutionCode(sumAll, "#sumAllSolution");
-			addSolutionCode(diffArray, "#diffArraySolution");
-			addSolutionCode(convertToRoman, "#romanConvertSolution");
-			addSolutionCode(whatIsInAName, "#whatIsInANameSolution");
-			addSolutionCode(searchReplace, "#searchReplaceSolution");
+			
+			$("[data-function-name]").each(function(){
+				var functionName = $(this).data("functionName");
 
-			$("#sumAll").click(function() {
-				var arr = [];
-				arr.push($("#num1").val());
-				arr.push($("#num2").val());
-				$('#sumAllResult').text(sumAll(arr));
-			});
+				//Add solution code to div
+				$(this).find(".solutionCode").html(
+						"<pre>" + window[functionName].toString().replace("<", "&lt;") + "</pre>");
 
-			$("#sumAllSolution").click(function() {
-				showSolution(sumAll, "#sumAllSolution");
-			});
+				//Trigger click event on solution button
+				$(this).find(".solutionButt").click(function() {
+					if ($(this).attr('value') === 'Show Solution') {
+						$(this).next().fadeIn();
+						$(this).attr('value', 'Hide Solution');
 
-			$("#diffArray").click(function() {
-				var arr1 = $("#arr1").val().split(",");
-				var arr2 = $("#arr2").val().split(",");
-				$('#diffArrayResult').text(diffArray(arr1, arr2));
-			});
+					} else {
+						$(this).attr('value', 'Show Solution');
+						$(this).next().fadeOut();
+					}
+				});
+				var row = $(this);
+				//Trigger for testing button and testing result
+				$(this).find(".testFunction").click(function() {
+					switch(functionName) {
+						case "sumAll":
+							var arr = [];
+							arr.push($("#num1").val());
+							arr.push($("#num2").val());
+							row.find('.testResult').text(sumAll(arr));
+							break;
 
-			$("#diffArraySolution").click(function() {
-				showSolution(diffArray, "#diffArraySolution");
-			});
+						case "diffArray":
+							var arr1 = $("#arr1").val().split(",");
+							var arr2 = $("#arr2").val().split(",");
+							row.find('.testResult').text(diffArray(arr1, arr2));
+							break;
 
-			$("#romanConvert").click(function() {
-				var decimalNum = $("#decimalNumber").val();
-				$('#romanCovertResult').text(convertToRoman(decimalNum));
-			});
-			$("#romanConvertSolution").click(function() {
-				showSolution(convertToRoman, "#romanConvertSolution");
-			});
+						case "convertToRoman":
+							var decimalNum = $("#decimalNumber").val();
+							row.find('.testResult').text(convertToRoman(decimalNum));
+							break;
 
-			$("#whatIsInANameFilter").click(function() {
-				var collectionArr = $("#collectionArr").val();
-				var sourceArr = $("#sourceArr").val();
-				$('#whatIsInANameResult').text(whatIsInAName(collectionArr,sourceArr));
-			});
-			$("#whatIsInANameSolution").click(function() {
-				showSolution(whatIsInAName, "#whatIsInANameSolution");
-			});
+						case "whatIsInAName":
+							var collectionArr = $("#collectionArr").val();
+							var sourceArr = $("#sourceArr").val();
+							row.find('.testResult').text(whatIsInAName(collectionArr,sourceArr));
+							break;
 
-			$("#searchReplace").click(function() {
-				var beforeSentence = $("#beforeSentence").val().trim();
-				var before = $("#beforeString").val().trim();
-				var after = $("#afterString").val().trim();
-				$('#searchReplaceResult').text(searchReplace(beforeSentence, before, after) );
-			});
+						case "searchReplace":
+							var beforeSentence = $("#beforeSentence").val().trim();
+							var before = $("#beforeString").val().trim();
+							var after = $("#afterString").val().trim();
+							row.find('.testResult').text(searchReplace(beforeSentence, before, after));
+							break;
 
-			$("#searchReplaceSolution").click(function() {
-				showSolution(searchReplace, "#searchReplaceSolution");
-			});
-
+						case "translatePigLatin":
+							var beforeString  = $("#beforeTranslatePigStr").val().trim();
+							row.find('.testResult').text(translatePigLatin(beforeString));
+							break;
+					}
+				});
+			})
 		})
 	</script>
 </body>
