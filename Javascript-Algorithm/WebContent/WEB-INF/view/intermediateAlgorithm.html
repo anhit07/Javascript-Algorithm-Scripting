@@ -170,6 +170,85 @@
 					<td class="result"><span class="testResult"></span></td>
 				</tr>
 <!-- Search and Replace End -->
+
+<!--DNA pair Element Start-->
+				<tr data-function-name="pairElement">
+					<td><h3>DNA Pairing</h3> 
+						<br/>The DNA strand is missing the pairing element. 
+						Take each character, get its pair, and return the results as a 2d array.
+						<br/><a href="https://en.wikipedia.org/wiki/Base_pair" target="_blank">Base pairs </a>
+						 are a pair of AT and CG. Match the missing element to the provided character.
+						<br/>Return the provided character as the first element in each array.
+						<br/>For example, for the input GCG, return [["G", "C"], ["C","G"],["G", "C"]]
+						<br/>The character and its pair are paired up in an array, 
+						and all the arrays are grouped into one encapsulating array.
+						<br/>Write your own code. <br/>
+						<input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td><label for="beforeDNAStr">String:</label> 
+						<input type="text" id="beforeDNAStr" class="form-control">
+						<input type="button" value="Show Result" class="btn btn-default testFunction">
+					</td>
+					<td class="result"><span class="testResult"></span></td>
+				</tr>
+<!-- DNA pair Element End -->
+
+<!--Fear Not Letter Start-->
+				<tr data-function-name="fearNotLetter">
+					<td><h3>Missing letters</h3> 
+						<br/>Find the missing letter in the passed letter range and return it.
+						<br/>If all letters are present in the range, return undefined.
+						<br/>Write your own code. <br/>
+						<input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td><label for="beforeNotLetterStr">String:</label> 
+						<input type="text" id="beforeNotLetterStr" class="form-control">
+						<input type="button" value="Show Result" class="btn btn-default testFunction">
+					</td>
+					<td class="result"><span class="testResult"></span></td>
+				</tr>
+<!-- Fear Not Letter End -->
+
+<!--Boolean Who Start-->
+				<tr data-function-name="booWho">
+					<td><h3>Boo who</h3> 
+						<br/>Check if a value is classified as a boolean primitive. Return true or false.
+						<br/>Boolean primitives are true and false.
+						<br/>Write your own code. <br/>
+						<input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td><label for="boolStr">String:</label> 
+						<input type="text" id="boolStr" class="form-control">
+						<input type="button" value="Show Result" class="btn btn-default testFunction">
+					</td>
+					<td class="result"><span class="testResult"></span></td>
+				</tr>
+<!-- Boolean Who End -->
+
+<!--Unite Unique Start-->
+				<tr data-function-name="uniteUnique">
+					<td><h3>Sorted Union</h3> 
+						<br/>Write a function that takes two or more arrays and returns 
+						a new array of unique values in the order of the original provided arrays.
+						<br/>In other words, all values present from all arrays should be 
+						included in their original order, but with no duplicates in the final array.
+						<br/>The unique numbers should be sorted by their original order, 
+						but the final array should not be sorted in numerical order.
+						<br/>Check the assertion tests for examples.
+						<br/>Write your own code. <br/>
+						<input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td><label for="uniteUniqueArg">Argument array:</label> 
+						<input type="text" id="uniteUniqueArg" class="form-control">
+						<input type="button" value="Show Result" class="btn btn-default testFunction">
+					</td>
+					<td class="result"><span class="testResult"></span></td>
+				</tr>
+<!-- Unite Unique End -->
 			</tbody>
 		</table>
 	</div>
@@ -234,9 +313,28 @@
 							row.find('.testResult').text(searchReplace(beforeSentence, before, after));
 							break;
 
-						case "translatePigLatin":
-							var beforeString  = $("#beforeTranslatePigStr").val().trim();
-							row.find('.testResult').text(translatePigLatin(beforeString));
+						case "pairElement":
+							var beforeString  = $("#beforeDNAStr").val().trim();
+							row.find('.testResult').text(pairElement(beforeString));
+							break;
+
+						case "fearNotLetter":
+							var beforeString  = $("#beforeNotLetterStr").val().trim();
+							row.find('.testResult').text(fearNotLetter(beforeString));
+							break;
+
+						case "booWho":
+							var boolStr  = $("#boolStr").val().trim();
+							if(boolStr === 'true' | boolStr === 'false'){
+								boolStr = Boolean(boolStr);
+							}
+							row.find('.testResult').text(booWho(boolStr));
+							break;
+
+						case "uniteUnique":
+							var uniteUniqueArg  = $("#uniteUniqueArg").val().trim();
+							uniteUniqueArg = JSON.parse("[" + uniteUniqueArg + "]");
+							row.find('.testResult').text(uniteUnique(uniteUniqueArg));
 							break;
 					}
 				});

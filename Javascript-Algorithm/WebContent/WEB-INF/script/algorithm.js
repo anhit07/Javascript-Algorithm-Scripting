@@ -79,6 +79,7 @@ function whatIsInAName(collection, source) {
 	return JSON.stringify(arr);
 
 }
+
 function searchReplace(str, before, after) {
 
 	var beforeInstr = str.charAt(str.toLowerCase()
@@ -113,4 +114,61 @@ function translatePigLatin(str) {
 	}
 
 	return str;
+}
+
+function pairElement(str) {
+	var dnaSequences1 = [ "A", "T", "C", "G" ];
+
+	var arrStr = str.split("");
+	var returnStr = [];
+	for (var i = 0; i < arrStr.length; i++) {
+
+		var arrItem = [];
+		arrItem.push(arrStr[i]);
+
+		if (dnaSequences1.indexOf(arrStr[i]) !== -1) {
+			var pairChar = "";
+			if (dnaSequences1.indexOf(arrStr[i]) % 2 === 0) {
+				pairChar = dnaSequences1[dnaSequences1.indexOf(arrStr[i]) + 1];
+			} else {
+				pairChar = dnaSequences1[dnaSequences1.indexOf(arrStr[i]) - 1];
+			}
+
+			arrItem.push(pairChar);
+		}
+		returnStr.push(arrItem);
+	}
+
+	return JSON.stringify(returnStr);
+}
+
+function fearNotLetter(str) {
+
+	var returnStr = null;
+	for (var i = 0; i < str.length; i++) {
+		var currentCharCode = str.charCodeAt(i);
+		if (i > 0) {
+			var beforeCharCode = str.charCodeAt(i - 1);
+			if (currentCharCode !== beforeCharCode + 1) {
+				returnStr = String.fromCharCode(beforeCharCode + 1);
+			}
+		}
+	}
+
+	return returnStr;
+}
+function booWho(bool) {
+	// What is the new fad diet for ghost developers? The Boolean.
+	return typeof bool === 'boolean';
+}
+
+function uniteUnique(args) {
+
+	var returnArr = args.reduce(function(acc, currentItem) {
+		var itemArr = currentItem.filter(function(word) {
+			return (acc.indexOf(word) === -1);
+		});
+		return [...acc, ...itemArr ];
+	});
+	return JSON.stringify(returnArr);
 }
