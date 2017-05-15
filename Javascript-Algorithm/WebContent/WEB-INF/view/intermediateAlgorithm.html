@@ -249,6 +249,61 @@
 					<td class="result"><span class="testResult"></span></td>
 				</tr>
 <!-- Unite Unique End -->
+
+<!--Convert HTML Entities Start-->
+				<tr data-function-name="convertHTML">
+					<td><h3>Convert HTML Entities</h3> 
+						<br/>Convert the characters &, <, >, " (double quote), and ' (apostrophe), 
+						in a string to their corresponding HTML entities.
+						<br/>Write your own code. <br/>
+						<input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td><label for="convertHTMLStr">String:</label> 
+						<input type="text" id="convertHTMLStr" class="form-control">
+						<input type="button" value="Show Result" class="btn btn-default testFunction">
+					</td>
+					<td class="result"><span class="testResult"></span></td>
+				</tr>
+<!-- Convert HTML Entities End -->
+
+<!--Spinal Case Start-->
+				<tr data-function-name="spinalCase">
+					<td><h3>Spinal Tap Case</h3> 
+						<br/>Convert a string to spinal case. 
+						Spinal case is all-lowercase-words-joined-by-dashes.
+						<br/>Write your own code. <br/>
+						<input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td><label for="spinalCaseStr">String:</label> 
+						<input type="text" id="spinalCaseStr" class="form-control">
+						<input type="button" value="Show Result" class="btn btn-default testFunction">
+					</td>
+					<td class="result"><span class="testResult"></span></td>
+				</tr>
+<!-- Spinal Case End -->
+
+<!--Sum Primes Start-->
+				<tr data-function-name="sumPrimes">
+					<td><h3>Sum All Primes</h3> 
+						<br/>Sum all the prime numbers up to and including the provided number.
+						<br/>A prime number is defined as a number greater than one and having 
+						<br/>only two divisors, one and itself. 
+						For example, 2 is a prime number because it's only divisible by one and two.
+						<br/>The provided number may not be a prime.
+						<br/>Write your own code. <br/>
+						<input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td><label for="sumPrimesMaxNum">Max number:</label> 
+						<input type="number" id="sumPrimesMaxNum" class="form-control">
+						<input type="button" value="Show Result" class="btn btn-default testFunction">
+					</td>
+					<td class="result"><span class="testResult"></span></td>
+				</tr>
+<!-- Spinal Case End -->
+
 			</tbody>
 		</table>
 	</div>
@@ -335,6 +390,21 @@
 							var uniteUniqueArg  = $("#uniteUniqueArg").val().trim();
 							uniteUniqueArg = JSON.parse("[" + uniteUniqueArg + "]");
 							row.find('.testResult').text(uniteUnique(uniteUniqueArg));
+							break;
+
+						case "convertHTML":
+							var convertHTMLStr  = $("#convertHTMLStr").val().trim();
+							row.find('.testResult').text(convertHTML(convertHTMLStr));
+							break;
+
+						case "spinalCase":
+							var spinalCaseStr  = $("#spinalCaseStr").val().trim();
+							row.find('.testResult').text(spinalCase(spinalCaseStr));
+							break;
+
+						case "sumPrimes":
+							var sumPrimesMaxNum  = $("#sumPrimesMaxNum").val().trim();
+							row.find('.testResult').text(sumPrimes(sumPrimesMaxNum));
 							break;
 					}
 				});

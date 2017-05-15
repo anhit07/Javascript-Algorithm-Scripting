@@ -172,3 +172,49 @@ function uniteUnique(args) {
 	});
 	return JSON.stringify(returnArr);
 }
+
+function convertHTML(str) {
+	var arr = [ '&', '<', '>', '"', "'" ];
+	var replaceArr = [ "&amp;", "&lt;", "&gt;", "&quot;", "&apos;" ];
+	for (var i = 0; i < arr.length; i++) {
+		if (str.indexOf(arr[i]) !== -1) {
+			var pattern = arr[i];
+			var re = new RegExp(pattern, "g");
+			str = str.replace(re, replaceArr[i]);
+		}
+	}
+	return str;
+}
+function spinalCase(str) {
+	// Create a variable for the white space and underscores.
+	var regex = /\s+|_+/g;
+
+	// Replace low-upper case to low-space-uppercase
+	str = str.replace(/([a-z])([A-Z])/g, '$1 $2');
+
+	// Replace space and underscore with -
+	return str.replace(regex, '-').toLowerCase();
+}
+
+function sumPrimes(maxNum) {
+	var primeArr = [];
+	var num = 2;
+
+	while (num <= maxNum) {
+		var isPrimeNum = true;
+		for (var i = 2; i <= num / 2; i++) {
+			if (num % i === 0) {
+				isPrimeNum = false;
+				break;
+			}
+		}
+		if (isPrimeNum === true) {
+			primeArr.push(num);
+		}
+		num++;
+	}
+	var total = primeArr.reduce(function(a, b) {
+		return a + b;
+	});
+	return total;
+}
