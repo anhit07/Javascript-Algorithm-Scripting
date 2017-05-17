@@ -218,3 +218,78 @@ function sumPrimes(maxNum) {
 	});
 	return total;
 }
+
+function smallestCommons(arr) {
+	// Sort array from greater to lowest
+	arr.sort(function(a, b) {
+		return b - a;
+	});
+
+	// Create new array and add all values from greater to smaller from the
+	// original array.
+	var newArr = [];
+	for (var i = arr[0]; i >= arr[1]; i--) {
+		newArr.push(i);
+	}
+
+	// Variables needed declared outside the loops.
+	var quot = 0;
+	var loop = 1;
+	var n = 0;
+
+	// run code while n is not the same as the array lenght.
+	do {
+		quot = newArr[0] * loop * newArr[1];
+		for (n = 2; n < newArr.length; n++) {
+			if (quot % newArr[n] !== 0) {
+				break;
+			}
+		}
+
+		loop++;
+	} while (n !== newArr.length);
+
+	return quot;
+}
+
+function findElement(arr, func) {
+	var num = arr.filter(function(word) {
+		return func(word) === true;
+	});
+	return num;
+}
+function dropElements(arr, func) {
+	// Drop them elements.
+	var newArr = [];
+	for (var i = 0; i < arr.length; i++) {
+		if (func(arr[i]) === false) {
+			arr.shift();
+		}
+		if (func(arr[i]) === true) {
+			newArr = arr.slice(i, arr.length);
+			break;
+		}
+	}
+	return newArr;
+}
+function steamrollArray(arr) {
+	// I'm a steamroller, baby
+	var newArr = [];
+	console.log(arr);
+	for (var i = 0; i < arr.length; i++) {
+		if (!Array.isArray(arr[i])) {
+			newArr.push(arr[i]);
+		} else {
+			if (arr[i].length !== 0) {
+				var arr2 = arr[i].toString().split(",");
+				for (var j = 0; j < arr2.length; j++) {
+					if (/^\d+$/.test(arr2[j])) {
+						arr2[j] = Number(arr2[j]);
+					}
+					newArr.push(arr2[j]);
+				}
+			}
+		}
+	}
+	return JSON.stringify(newArr);
+}

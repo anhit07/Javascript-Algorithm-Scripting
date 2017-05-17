@@ -302,8 +302,64 @@
 					</td>
 					<td class="result"><span class="testResult"></span></td>
 				</tr>
-<!-- Spinal Case End -->
+<!-- Sum Primes End -->
 
+<!--Find Element Start-->
+				<tr data-function-name="findElement">
+					<td><h3>Finders Keepers</h3> 
+						<br/>Create a function that looks through an array (first argument) and 
+						returns the first element in the array that passes a truth test (second argument).
+						<br/>Write your own code. <br/>
+						<input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td><!-- <label for="arrNumFindEle">Array of elements:</label> 
+						<input type="text" id="arrNumFindEle" class="form-control">
+						<label for="functionFindEle">Finders Keepers Function:</label> 
+						<textarea rows="5" id="functionFindEle" class="form-control"></textarea>
+						<input type="button" value="Show Result" class="btn btn-default testFunction"> -->
+					</td>
+					<td class="result"><span class="testResult"></span></td>
+				</tr>
+<!-- Find Element End -->
+
+<!--Drop Element Start-->
+				<tr data-function-name="dropElements">
+					<td><h3>Drop it</h3> 
+						<br/>Drop the elements of an array (first argument), 
+						starting from the front, until the predicate (second argument) returns true.
+						<br/>The second argument, func, is a function you'll use to test 
+						the first elements of the array to decide if you should drop it or not.
+						<br/>Return the rest of the array, otherwise return an empty array.
+						<br/>Write your own code. <br/>
+						<input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td><!-- <label for="arrNumFindEle">Array of elements:</label> 
+						<input type="text" id="arrNumFindEle" class="form-control">
+						<label for="functionFindEle">Finders Keepers Function:</label> 
+						<textarea rows="5" id="functionFindEle" class="form-control"></textarea>
+						<input type="button" value="Show Result" class="btn btn-default testFunction"> -->
+					</td>
+					<td class="result"><span class="testResult"></span></td>
+				</tr>
+<!-- Drop Element End -->
+
+<!--Steamroll Array Start-->
+				<tr data-function-name="steamrollArray">
+					<td><h3>Steamroller</h3> 
+						<br/>Flatten a nested array. You must account for varying levels of nesting.
+						<br/>Write your own code. <br/>
+						<input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td><!-- <label for="steamrollStr">Steamroll Array:</label> 
+						<input type="text" id="steamrollStr" class="form-control">
+						<input type="button" value="Show Result" class="btn btn-default testFunction"> -->
+					</td>
+					<td class="result"><span class="testResult"></span></td>
+				</tr>
+<!-- Steamroll Array End -->
 			</tbody>
 		</table>
 	</div>
@@ -406,6 +462,21 @@
 							var sumPrimesMaxNum  = $("#sumPrimesMaxNum").val().trim();
 							row.find('.testResult').text(sumPrimes(sumPrimesMaxNum));
 							break;
+
+						/* case "findElement":
+							var arrNumFindEle  = $("#arrNumFindEle").val().trim();
+							arrNumFindEle = JSON.parse("[" + arrNumFindEle + "]");
+							var functionFindEle  = $("#functionFindEle").val().trim();
+							var func = new Function("num", functionFindEle);
+							row.find('.testResult').text(findElement(arrNumFindEle, func));
+							break; */
+						/*  case "steamrollArray":
+							var steamrollStr  = $("#steamrollStr").val().trim();
+							steamrollStr = steamrollStr.replace(/^{}$/g,"{}");
+							steamrollStr = steamrollStr.replace(/^[]+$/g,"");
+							steamrollStr = JSON.parse("[" + steamrollStr + "]");
+							row.find('.testResult').text(steamrollArray(steamrollStr));
+							break; */
 					}
 				});
 			})
