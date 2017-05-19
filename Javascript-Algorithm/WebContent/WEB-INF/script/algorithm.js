@@ -293,3 +293,45 @@ function steamrollArray(arr) {
 	}
 	return JSON.stringify(newArr);
 }
+
+function binaryAgent(str) {
+	var arr = str.split(' ');
+	var arrStr = [];
+	for (var i = 0; i < arr.length; i++) {
+		charCode = parseInt(arr[i], 2);
+		arrStr.push(String.fromCharCode(charCode));
+	}
+	return arrStr.join('');
+}
+
+function addTogether() {
+	var args = Array.prototype.slice.call(arguments);
+console.log(args);
+	function validNumber(test) {
+		if (typeof test !== 'number') {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	if (args.length >= 2) {
+		if (validNumber(args[0]) && validNumber(args[1])) {
+			return args[0] + args[1];
+		}
+	} else {
+		if (!validNumber(args[0])) {
+			// if not a valid number
+			return undefined;
+		} else {
+			return function(newNumber) {
+				if (validNumber(newNumber)) {
+					return args[0] + newNumber;
+				} else {
+					return undefined;
+				}
+
+			};
+		}
+	}
+}

@@ -360,6 +360,47 @@
 					<td class="result"><span class="testResult"></span></td>
 				</tr>
 <!-- Steamroll Array End -->
+
+<!--Binary Agent Start-->
+				<tr data-function-name="binaryAgent">
+					<td><h3>Binary Agents</h3> 
+						<br/>Return an English translated sentence of the passed binary string.
+						<br/>The binary string will be space separated.
+						<br/>Write your own code. <br/>
+						<input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td><label for="binaryStrAgent">Binary String:</label> 
+						<textarea rows="5" id="binaryStrAgent" class="form-control"></textarea>
+						<input type="button" value="Show Result" class="btn btn-default testFunction">
+					</td>
+					<td class="result"><span class="testResult"></span></td>
+				</tr>
+<!-- Binary Agent End -->
+
+<!--Arguments Optional Start-->
+				<tr data-function-name="addTogether">
+					<td><h3>Arguments Optional</h3> 
+						<br/>Create a function that sums two arguments together. 
+						If only one argument is provided, then return a function that 
+						expects one argument and returns the sum.
+						<br/>For example, addTogether(2, 3) should return 5, and 
+						addTogether(2) should return a function.
+						<br/>Calling this returned function with a single argument will then return the sum:
+						<br/>var sumTwoAnd = addTogether(2);
+						<br/>sumTwoAnd(3) returns 5.
+						<br/>If either argument isn't a valid number, return undefined.
+						<br/>Write your own code. <br/>
+						<input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td><!-- <label for="argOptFuncStr">Call Function String:</label> 
+						<input type="text" id="argOptFuncStr" class="form-control">
+						<input type="button" value="Show Result" class="btn btn-default testFunction"> -->
+					</td>
+					<td class="result"><span class="testResult"></span></td>
+				</tr>
+<!-- Arguments Optional End -->
 			</tbody>
 		</table>
 	</div>
@@ -476,6 +517,20 @@
 							steamrollStr = steamrollStr.replace(/^[]+$/g,"");
 							steamrollStr = JSON.parse("[" + steamrollStr + "]");
 							row.find('.testResult').text(steamrollArray(steamrollStr));
+							break; */
+						case "binaryAgent":
+							var binaryStrAgent  = $("#binaryStrAgent").val().trim();
+							row.find('.testResult').text(binaryAgent(binaryStrAgent));
+							break;
+							
+						/* case "addTogether":
+							var argOptFuncStr  = $("#argOptFuncStr").val().trim();
+							/*var argArr = argOptFuncStr.replace("addTogether","").split(")(");
+							argArr = argArr.map(function(val){
+								return val.replace(/\(/g,"").replace(/\)/g,"").split(",");
+							})
+							console.log(eval(argOptFuncStr));
+							row.find('.testResult').text(addTogether(argArr));
 							break; */
 					}
 				});
