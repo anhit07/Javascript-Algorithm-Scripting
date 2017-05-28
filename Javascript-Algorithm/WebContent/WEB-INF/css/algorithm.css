@@ -1,7 +1,7 @@
 /* For desktop screen */
 @media screen and (min-width: 601px) {
 	#algorithmList {
-		width: 1100px;
+		width: 1200px;
 		margin: auto;
 	}
 	#algorithmList .solutionCode {
@@ -34,7 +34,7 @@
 	}
 	#algorithmList .solutionCode {
 		max-width: 330px;
-		overflow:scroll;
+		overflow: scroll;
 	}
 }
 
@@ -55,19 +55,18 @@
 }
 
 #algorithmList th.result {
-	max-width: 220px;
+	max-width: 300px;
 }
+
 #algorithmList td.result {
 	word-wrap: break-word;
 	max-width: 120px;
 }
 
-
 #algorithmList .solutionCode {
 	color: white;
 	margin: 10px auto;
 	display: none;
-	
 }
 
 #algorithmList .solutionCode pre {
@@ -78,4 +77,9 @@
 .btn {
 	margin-top: 10px;
 	width: 130px;
+}
+
+#collectionObjectSmaple {
+	word-wrap: break-word;
+	max-width: 280px;
 }

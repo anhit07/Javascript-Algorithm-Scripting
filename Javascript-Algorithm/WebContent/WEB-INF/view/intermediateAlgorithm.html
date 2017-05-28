@@ -21,7 +21,7 @@
 <body>
 	<div class="container-fluid">
 		<div class="col-xs-12 col-sm-12 col-lg-12 text-center">
-			<h2>Intermediate Algorithm Scripting</h2>
+			<h2>Javascript Algorithm Scripting</h2>
 		</div>
 		<table id="algorithmList" class="table table-bordered">
 			<thead>
@@ -401,6 +401,96 @@
 					<td class="result"><span class="testResult"></span></td>
 				</tr>
 <!-- Arguments Optional End -->
+
+<!--Telephone Check Start-->
+				<tr data-function-name="telephoneCheck">
+					<td><h3>Validate US Telephone Numbers</h3> 
+						<br/>Return true if the passed string is a valid US phone number.
+						The user may fill out the form field any way they choose 
+						as long as it is a valid US number. The following are
+						examples of valid formats for US numbers (refer to the tests below for other variants):
+						<p>555-555-5555<br/>(555)555-5555<br/>
+						(555) 555-5555<br/>555 555 5555
+						<br/>5555555555<br/>1 555 555 5555</p>
+						For this challenge you will be presented with a string such as 
+						800-692-7753 or 8oo-six427676;laskdjf. 
+						Your job is to validate or reject the US phone number based on 
+						any combination of the formats provided above. The area code is required. 
+						If the country code is provided, you must confirm that the country code is 1. 
+						Return true if the string is a valid US phone number; otherwise return false.
+						<br/>Write your own code. <br/>
+						<input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td><label for="telPhoneStr">Telephone String:</label> 
+						<input type="text" id="telPhoneStr" class="form-control">
+						<input type="button" value="Show Result" class="btn btn-default testFunction">
+					</td>
+					<td class="result"><span class="testResult"></span></td>
+				</tr>
+<!-- Telephone Check End -->
+
+<!--Update Records Start-->
+				<tr data-function-name="updateRecords">
+					<td><h3>Record Collection</h3> 
+						<br/>You are given a JSON object representing a part of your musical album collection. 
+						Each album has several properties and a unique id number as its key. 
+						Not all albums have complete information.
+						<br/>Write a function which takes an album's id (like 2548), 
+						a property prop (like "artist" or "tracks"), and a value (like "Addicted to Love") 
+						to modify the data in this collection.
+						<br/>If prop isn't "tracks" and value isn't empty (""), update or set the value for that record album's property.
+						<br/>Your function must always return the entire collection object.
+						<br/>There are several rules for handling incomplete data:
+						<br/>If prop is "tracks" but the album doesn't have a "tracks" property, 
+						create an empty array before adding the new value to the album's corresponding property.
+						<br/>If prop is "tracks" and value isn't empty (""), 
+						push the value onto the end of the album's existing tracks array.
+						<br/>If value is empty (""), delete the given prop property from the album.
+						<br/><strong>Hints</strong>
+						<br/>Use bracket notation when accessing object properties with variables.
+						<br/>Push is an array method you can read about on Mozilla Developer Network.
+						<br/>You may refer back to Manipulating Complex Objects Introducing JavaScript Object Notation (JSON) for a refresher.
+						<br/><input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td><label>Collection Sample:</label>
+					<br/><div id="collectionObjectSmaple"></div>
+						<label for="albumId">Album ID</label> 
+						<input type="text" id="albumId" class="form-control">
+						<label for="propertyUpdated">Desired Property Updated</label> 
+						<input type="text" id="propertyUpdated" class="form-control">
+						<label for="propertyNewValue">New Value</label> 
+						<input type="text" id="propertyNewValue" class="form-control">
+						<input type="button" value="Show Result" class="btn btn-default testFunction">
+					</td>
+					<td class="result"><label>Updated Collection: </label><span class="testResult"></span></td>
+				</tr>
+<!-- Update Records End -->
+
+<!--Symmetric Difference Start-->
+				<tr data-function-name="symmetricDifference">
+					<td><h3>Symmetric Difference </h3> 
+						<br/>Create a function that takes two or more arrays and returns an array 
+						of the symmetric difference (△ or ⊕) of the provided arrays.
+						<br/>Given two sets (for example set A = {1, 2, 3} and set B = {2, 3, 4}), 
+						the mathematical term "symmetric difference" of two sets is the set of elements 
+						which are in either of the two sets, but not in both (A △ B = C = {1, 4}). 
+						For every additional symmetric difference you take (say on a set D = {2, 3}),
+						you should get the set with elements which are in either of the 
+						two the sets but not both (C △ D = {1, 4} △ {2, 3} = {1, 2, 3, 4}).
+						<br/>Write your own code.
+						<br/><input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td>
+						<label for="symDiffArray">Array String</label> 
+						<textarea rows="5" id="symDiffArray" class="form-control"></textarea>
+						<input type="button" value="Show Result" class="btn btn-default testFunction">
+					</td>
+					<td class="result"><span class="testResult"></span></td>
+				</tr>
+<!-- Symmetric Difference End -->
 			</tbody>
 		</table>
 	</div>
@@ -430,6 +520,8 @@
 						$(this).next().fadeOut();
 					}
 				});
+				$("#collectionObjectSmaple").html("<pre>collection =" 
+						+ JSON.stringify(collection, null, 2) + "</pre>");
 				var row = $(this);
 				//Trigger for testing button and testing result
 				$(this).find(".testFunction").click(function() {
@@ -532,6 +624,30 @@
 							console.log(eval(argOptFuncStr));
 							row.find('.testResult').text(addTogether(argArr));
 							break; */
+							
+						case "telephoneCheck":
+							var telPhoneStr  = $("#telPhoneStr").val().trim();
+							row.find('.testResult').text(telephoneCheck(telPhoneStr));
+							break;
+						case "updateRecords":
+							var albumId  = $("#albumId").val().trim();
+							var propertyUpdated  = $("#propertyUpdated").val().trim();
+							var propertyNewValue  = $("#propertyNewValue").val().trim();
+							updateRecords(albumId,propertyUpdated,propertyNewValue);
+							row.find('.testResult').html("<pre>updatedCollection =" 
+									+ JSON.stringify(collectionCopy, null, 2) + "</pre>");
+							break;
+						case "symmetricDifference":
+							var symDiffArray  = $("#symDiffArray").val().trim();
+							symDiffArray = symDiffArray.substring(0,symDiffArray.length -1);
+							symDiffArray = symDiffArray.replace(/[\s\/\\[]/g,'').split("],");
+							var array = []
+							for(var i =0; i < symDiffArray.length; i++){
+								array.push( symDiffArray[i].split(','));
+							}
+							console.log(array);
+							row.find('.testResult').text("[" + symmetricDifference(array) + "]");
+							break;
 					}
 				});
 			})

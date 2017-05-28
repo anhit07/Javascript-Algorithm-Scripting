@@ -306,7 +306,7 @@ function binaryAgent(str) {
 
 function addTogether() {
 	var args = Array.prototype.slice.call(arguments);
-console.log(args);
+	console.log(args);
 	function validNumber(test) {
 		if (typeof test !== 'number') {
 			return false;
@@ -334,4 +334,97 @@ console.log(args);
 			};
 		}
 	}
+}
+
+function telephoneCheck(str) {
+	var re = /^[1]{1}\s{0,1}(\({1}\d{3}\){1}|\d{3})(\s|-){0,1}\d{3}(\s|-){0,1}\d{4}$/;
+	var re2 = /^(\({1}\d{3}\){1}|\d{3})(\s|-){0,1}\d{3}(\s|-){0,1}\d{4}$/;
+	return re.test(str) || re2.test(str);
+}
+
+// Setup
+var collection = {
+	"2548" : {
+		"album" : "Slippery When Wet",
+		"artist" : "Bon Jovi",
+		"tracks" : [ "Let It Rock", "You Give Love a Bad Name" ]
+	},
+	"2468" : {
+		"album" : "1999",
+		"artist" : "Prince",
+		"tracks" : [ "1999", "Little Red Corvette" ]
+	},
+	"1245" : {
+		"artist" : "Robert Palmer",
+		"tracks" : []
+	},
+	"5439" : {
+		"album" : "ABBA Gold"
+	}
+};
+// Keep a copy of the collection for tests
+var collectionCopy = JSON.parse(JSON.stringify(collection));
+
+function updateRecords(id, prop, value) {
+	var propEle = collectionCopy[id][prop];
+	if (value === "") {
+		delete collectionCopy[id][prop];
+	} else {
+		if (prop !== "tracks") {
+			collectionCopy[id][prop] = value;
+		}
+
+		if (prop === "tracks") {
+			if (propEle === undefined) {
+				collectionCopy[id][prop] = [];
+			}
+			collectionCopy[id][prop].push(value);
+		}
+	}
+	return collectionCopy;
+}
+
+function symmetricDifference(args) {
+
+	function symDiff(arrayOne, arrayTwo) {
+		var resultArr = [];
+
+		arrayOne.forEach(function(item) {
+			if (arrayTwo.indexOf(item) < 0 && resultArr.indexOf(item) < 0) {
+				resultArr.push(item);
+			}
+		});
+
+		arrayTwo.forEach(function(item) {
+			if (arrayOne.indexOf(item) < 0 && resultArr.indexOf(item) < 0) {
+				resultArr.push(item);
+			}
+		});
+		return resultArr;
+	}
+	return args.reduce(symDiff);
+}
+
+function symmetricDifference2() {
+		var args = [];
+		for (var i = 0; i < arguments.length; i++) {
+			args.push(arguments[i]);
+		}
+		function symDiff(arrayOne, arrayTwo) {
+			var resultArr = [];
+
+			arrayOne.forEach(function(item) {
+				if (arrayTwo.indexOf(item) < 0 && resultArr.indexOf(item) < 0) {
+					resultArr.push(item);
+				}
+			});
+
+			arrayTwo.forEach(function(item) {
+				if (arrayOne.indexOf(item) < 0 && resultArr.indexOf(item) < 0) {
+					resultArr.push(item);
+				}
+			});
+			return resultArr;
+		}
+		return args.reduce(symDiff);
 }
