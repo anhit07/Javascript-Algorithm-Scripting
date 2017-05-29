@@ -406,25 +406,84 @@ function symmetricDifference(args) {
 }
 
 function symmetricDifference2() {
-		var args = [];
-		for (var i = 0; i < arguments.length; i++) {
-			args.push(arguments[i]);
-		}
-		function symDiff(arrayOne, arrayTwo) {
-			var resultArr = [];
+	var args = [];
+	for (var i = 0; i < arguments.length; i++) {
+		args.push(arguments[i]);
+	}
+	function symDiff(arrayOne, arrayTwo) {
+		var resultArr = [];
 
-			arrayOne.forEach(function(item) {
-				if (arrayTwo.indexOf(item) < 0 && resultArr.indexOf(item) < 0) {
-					resultArr.push(item);
-				}
-			});
+		arrayOne.forEach(function(item) {
+			if (arrayTwo.indexOf(item) < 0 && resultArr.indexOf(item) < 0) {
+				resultArr.push(item);
+			}
+		});
 
-			arrayTwo.forEach(function(item) {
-				if (arrayOne.indexOf(item) < 0 && resultArr.indexOf(item) < 0) {
-					resultArr.push(item);
+		arrayTwo.forEach(function(item) {
+			if (arrayOne.indexOf(item) < 0 && resultArr.indexOf(item) < 0) {
+				resultArr.push(item);
+			}
+		});
+		return resultArr;
+	}
+	return args.reduce(symDiff);
+}
+
+// checkCashRegister(19.50, 20.00, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0],
+// ["QUARTER", 0], ["ONE", 1.00], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE
+// HUNDRED", 0]]);
+function checkCashRegister(price, cash, cid) {
+	// Variable of denominations and their values
+	var denom = [ 
+	    {name : 'ONE HUNDRED', val : 100.00}, 
+	    {name : 'TWENTY', val : 20.00},
+	    {name : 'TEN', val : 10.00},
+	    {name : 'FIVE', val : 5.00},
+	    {name : 'ONE', val : 1.00},
+	    {name : 'QUARTER', val : 0.25}, 
+	    {name : 'DIME', val : 0.10}, 
+	    {name : 'NICKEL', val : 0.05}, 
+	    {name : 'PENNY', val : 0.01} 
+	];
+
+	var change = cash - price;
+	if (change <= 0) {
+		return;
+	}
+	// The object contains total of CID and each currency type amount
+	var register = cid.reduce(function(acc, curr) {
+		acc.total += curr[1];
+		acc[curr[0]] = curr[1];
+		return acc;
+	}, {
+		total : 0
+	});
+
+	if (change === register.total) {
+		return 'Closed';
+	} else {
+		if (change > register.total) {
+			return 'Insufficient Funds';
+		} else {
+			var changeArr = denom.reduce(function(acc, curr) {
+				var value = 0;
+				while (change >= curr.val && register[curr.name] > 0) {
+					change -= curr.val;
+					register[curr.name] -= curr.val;
+					value += curr.val;
+
+					change = Math.round(change * 100) / 100;
 				}
-			});
-			return resultArr;
+
+				if (value > 0) {
+					acc.push([ curr.name, value ]);
+				}
+				return acc;
+			}, []);
+			if (changeArr.length < 1 || change > 0) {
+				return "Insufficient Funds";
+			}
+			return changeArr;
 		}
-		return args.reduce(symDiff);
+	}
 }

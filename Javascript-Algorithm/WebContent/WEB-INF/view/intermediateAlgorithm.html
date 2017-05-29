@@ -456,11 +456,11 @@
 					</td>
 					<td><label>Collection Sample:</label>
 					<br/><div id="collectionObjectSmaple"></div>
-						<label for="albumId">Album ID</label> 
+						<label for="albumId">Album ID:</label> 
 						<input type="text" id="albumId" class="form-control">
-						<label for="propertyUpdated">Desired Property Updated</label> 
+						<label for="propertyUpdated">Desired Property Updated:</label> 
 						<input type="text" id="propertyUpdated" class="form-control">
-						<label for="propertyNewValue">New Value</label> 
+						<label for="propertyNewValue">New Value:</label> 
 						<input type="text" id="propertyNewValue" class="form-control">
 						<input type="button" value="Show Result" class="btn btn-default testFunction">
 					</td>
@@ -484,13 +484,40 @@
 						<div class="solutionCode"></div>
 					</td>
 					<td>
-						<label for="symDiffArray">Array String</label> 
+						<label for="symDiffArray">Array String: </label> 
 						<textarea rows="5" id="symDiffArray" class="form-control"></textarea>
 						<input type="button" value="Show Result" class="btn btn-default testFunction">
 					</td>
 					<td class="result"><span class="testResult"></span></td>
 				</tr>
 <!-- Symmetric Difference End -->
+<!--Check Cash Register Start-->
+				<tr data-function-name="checkCashRegister">
+					<td><h3>Exact Change</h3> 
+						<br/>Design a cash register drawer function checkCashRegister() that
+						accepts purchase price as the first argument (price), 
+						payment as the second argument (cash), and cash-in-drawer (cid) as the third argument.
+						<br/>cid is a 2D array listing available currency.
+						<br/>Return the string "Insufficient Funds" if cash-in-drawer is 
+						less than the change due. Return the string "Closed" if 
+						cash-in-drawer is equal to the change due.
+						<br/>Otherwise, return change in coin and bills, sorted in highest to lowest order.
+						<br/>Write your own code.
+						<br/><input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td>
+						<label for="cashRegisPrice">Price: </label> 
+						<input type="number" id="cashRegisPrice" class="form-control"> <br /> 
+						<label for="cashRegisCash">Cash: </label> 
+						<input type="number" id="cashRegisCash" class="form-control"> <br /> 
+						<label for="cashRegisCid">Cash In Drawer: </label> 
+						<textarea rows="5" id="cashRegisCid" class="form-control"></textarea>
+						<input type="button" value="Show Result" class="btn btn-default testFunction">
+					</td>
+					<td class="result"><span class="testResult"></span></td>
+				</tr>
+<!--Check Cash Register End -->
 			</tbody>
 		</table>
 	</div>
@@ -645,8 +672,15 @@
 							for(var i =0; i < symDiffArray.length; i++){
 								array.push( symDiffArray[i].split(','));
 							}
-							console.log(array);
 							row.find('.testResult').text("[" + symmetricDifference(array) + "]");
+							break;
+						case "checkCashRegister":
+							var price  = $("#cashRegisPrice").val().trim();
+							var cash  = $("#cashRegisCash").val().trim();
+							var cid  = $("#cashRegisCid").val().trim();
+							cid = JSON.parse("[" + cid + "]");
+							var result = JSON.stringify(checkCashRegister(price, cash, cid));
+							row.find('.testResult').text(result);
 							break;
 					}
 				});
