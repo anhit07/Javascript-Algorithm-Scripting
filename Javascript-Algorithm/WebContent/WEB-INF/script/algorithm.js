@@ -444,8 +444,7 @@ function checkCashRegister(price, cash, cid) {
 	    {name : 'DIME', val : 0.10}, 
 	    {name : 'NICKEL', val : 0.05}, 
 	    {name : 'PENNY', val : 0.01} 
-	];
-
+	    ];
 	var change = cash - price;
 	if (change <= 0) {
 		return;
@@ -486,4 +485,97 @@ function checkCashRegister(price, cash, cid) {
 			return changeArr;
 		}
 	}
+}
+
+function updateInventory(arr1, arr2) {	
+	//Get all Inventory item in array 1
+	var keyArr1 = arr1.reduce(function(acc, curr) {
+		acc.push(curr[1]);
+		return acc;
+	}, []);
+	
+	//Get all Inventory item in array 2
+	var keyArr2 = arr2.reduce(function(acc, curr) {
+		if (keyArr1.indexOf(curr[1]) < 0) {
+			acc.push(curr[1]);
+		}
+		return acc;
+	}, []);
+
+	//Merge all inventory item name in 1 array and sort
+	var mergeArray = keyArr1.concat(keyArr2).sort(function(a, b) {
+		var nameA = a.toUpperCase();
+		var nameB = b.toUpperCase();
+		if (nameA < nameB) {
+			return -1;
+		}
+		if (nameA > nameB) {
+			return 1;
+		}
+	});
+
+	//Create new array contains all inventory items in the merge list
+	var resultArr = mergeArray.reduce(function(acc, curr) {
+		var number = 0;
+		arr1.forEach(function(item) {
+			if (curr === item[1]) {
+				number += item[0];
+			}
+		});
+		arr2.forEach(function(item) {
+			if (curr === item[1]) {
+				number += item[0];
+			}
+		});
+		acc.push([ number, curr ]);
+		return acc;
+	}, []);
+
+	return resultArr;
+}
+
+function updateInventory2(arr1, arr2) {
+
+    // Variable for location of product
+    var index;
+
+    // A helper method to return the index of a specified product (undefined if not found)
+    var getProductIndex = function (name) {
+        for (var i = 0; i < this.length; i++) {
+            if (this[i][1] === name) {
+                return i;
+            }
+        }
+        return undefined;
+    }
+
+    // For each item of the new Inventory
+    for (var i = 0; i < arr2.length; i++) {
+
+        // Invoke our helper function using arr1 as this
+        index = getProductIndex.call(arr1, arr2[i][1]);
+
+        // If the item doesn't exist
+        if (index === undefined) {
+            // Push the entire item
+            arr1.push(arr2[i]);
+        } else {
+            // Add the new quantity of the current item
+            arr1[index][0] += arr2[i][0];
+        }
+
+    }
+
+    // Sort alphabetically, by the product name of each item
+    arr1.sort(function (a, b) {
+        if (a[1] > b[1]) {
+            return 1;
+        }
+        if (a[1] < b[1]) {
+            return -1;
+        }
+        return 0;
+    });
+
+    return arr1;
 }

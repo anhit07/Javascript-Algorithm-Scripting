@@ -518,6 +518,29 @@
 					<td class="result"><span class="testResult"></span></td>
 				</tr>
 <!--Check Cash Register End -->
+
+<!--Update Inventory Start-->
+				<tr data-function-name="updateInventory">
+					<td><h3>Inventory Update</h3> 
+						<br/>Compare and update the inventory stored in a 2D array against 
+						a second 2D array of a fresh delivery. 
+						Update the current existing inventory item quantities (in arr1). 
+						If an item cannot be found, add the new item and quantity into the inventory array. 
+						The returned inventory array should be in alphabetical order by item.
+						<br/>Write your own code.
+						<br/><input type="button" class="btn btn-default solutionButt" value="Show Solution">
+						<div class="solutionCode"></div>
+					</td>
+					<td>
+						<label for="invenArr1">Inventory Array 1: </label> 
+						<textarea rows="5" id="invenArr1" class="form-control"></textarea>
+						<label for="invenArr2">Inventory Array 2: </label> 
+						<textarea rows="5" id="invenArr2" class="form-control"></textarea>
+						<input type="button" value="Show Result" class="btn btn-default testFunction">
+					</td>
+					<td class="result"><span class="testResult"></span></td>
+				</tr>
+<!--Update Inventory End -->
 			</tbody>
 		</table>
 	</div>
@@ -680,6 +703,14 @@
 							var cid  = $("#cashRegisCid").val().trim();
 							cid = JSON.parse("[" + cid + "]");
 							var result = JSON.stringify(checkCashRegister(price, cash, cid));
+							row.find('.testResult').text(result);
+							break;
+						case "updateInventory":
+							var invenArr1  = $("#invenArr1").val().trim();
+							var invenArr2  = $("#invenArr2").val().trim();
+							invenArr1  = JSON.parse("[" + invenArr1 + "]");
+							invenArr2  = JSON.parse("[" + invenArr2 + "]");
+							var result = JSON.stringify(updateInventory(invenArr1, invenArr2));
 							row.find('.testResult').text(result);
 							break;
 					}
